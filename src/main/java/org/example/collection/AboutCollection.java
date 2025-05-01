@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.BiConsumer;
 
 public class AboutCollection implements Comparator {
 
@@ -43,6 +44,16 @@ public class AboutCollection implements Comparator {
         p.setProperty("height", "5ft");
 
         saveProperty(p);
+
+        Map<String, String> states = new HashMap<>();
+        states.put("katsina", "katsina");
+        states.put("edo", "benin city");
+        states.put("yobe", "damaturu");
+        states.put("lagos", "ikeja");
+
+        BiConsumer biConsumer = (a, b) -> System.out.printf("The capital of %s is %s \n", a, b);
+        states.forEach(biConsumer::accept);
+
     }
 
     public static void bus(List<A> al) {
